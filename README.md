@@ -52,3 +52,4 @@ export default tseslint.config({
   },
 })
 ```
+# ecommerce_project_react_ts
