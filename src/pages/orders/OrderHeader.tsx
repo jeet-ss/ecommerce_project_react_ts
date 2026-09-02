@@ -1,8 +1,12 @@
-import React from "react";
 import dayjs from "dayjs";
 
 import { formatMoney } from "../../utils/money.js";
-function OrderHeader({order}) {
+import type { Order } from "../../types/allTypes.js";
+
+
+function OrderHeader({order}: {
+  order: Order
+}) {
   return (
     <div className="order-header">
       <div className="order-header-left-section">

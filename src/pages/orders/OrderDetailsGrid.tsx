@@ -1,8 +1,12 @@
 import { Fragment } from "react";
-import OrderProductDetail from "./OrderProductDetail";
+import OrderProductDetail from "./OrderProductDetail.tsx";
+import type { Order, LoadCart } from "../../types/allTypes";
 
 
-const OrderDetailsGrid = ({order, loadCart}) => {
+const OrderDetailsGrid = ({order, loadCart}:{
+  order: Order;
+  loadCart: LoadCart;
+}) => {
 
   return (
     <div className="order-details-grid">

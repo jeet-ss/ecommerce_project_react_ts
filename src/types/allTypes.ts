@@ -15,6 +15,7 @@ export type Product = {
 };
 
 export type CartItem = {
+    id: number
     productId: string;
     quantity: number;
     deliveryOptionId: string;
@@ -48,12 +49,24 @@ export type Order = {
 
 export type Orders = Order[];
 
-export type DeliveryOptions = {
+export type DeliveryOptionType = {
     id: string;
     deliveryDays: number;
     priceCents: number;
     createdAt: string;
     updatedAt: string;
-}[];
+    estimatedDeliveryTimeMs: number;
+};
 
+export type DeliveryOptionsType = DeliveryOptionType[];
+
+
+export type PaymentSummaryType = {
+  totalItems: number,
+  productCostCents: number,
+  shippingCostCents: number,
+  totalCostBeforeTaxCents: number,
+  taxCents: number,
+  totalCostCents: number
+};
 

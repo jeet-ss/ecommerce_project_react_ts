@@ -1,8 +1,13 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
+import type {KeyboardEvent} from "react";
 import { formatMoney } from "../../utils/money.js";
 import axios from "axios";
+import type { CartItemWithProduct, LoadCart } from "../../types/allTypes.js";
 
-function CartItemDetails({ cartItem, loadCart }) {
+function CartItemDetails({ cartItem, loadCart }:{
+  cartItem: CartItemWithProduct;
+  loadCart: LoadCart;
+}) {
   const [itemQuantity, setItemQuantity] = useState(cartItem.quantity);
   const [isUpdating, setIsUpdating] = useState(false);
 
@@ -27,9 +32,10 @@ function CartItemDetails({ cartItem, loadCart }) {
     }
   };
 
-  function handleKeyDownInput(e) {
+  function handleKeyDownInput(e:KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {
-      setItemQuantity(Number(e.target.value));
+      const target = e.target as HTMLInputElement;
+      setItemQuantity(Number(target.value));
       handleCartItemUpdate();
     } else if (e.key === "Escape") {
       setItemQuantity(cartItem.quantity);

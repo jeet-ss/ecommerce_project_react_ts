@@ -2,8 +2,11 @@
 import { Link } from 'react-router'
 import Header from "../components/Header";
 import "./ErrorPage.css";
+import type { CartWithProduct } from '../types/allTypes';
 
-function ErrorPage({ cart }) {
+function ErrorPage({ cart }: {
+  cart: CartWithProduct
+}) {
   return (
     <>
       <title>404 Page Not Found</title>

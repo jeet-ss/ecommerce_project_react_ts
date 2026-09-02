@@ -2,12 +2,16 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-import Header from "../../components/Header.jsx";
-import OrdersGrid from "./OrdersGrid.jsx";
+import Header from "../../components/Header.js";
+import OrdersGrid from "./OrdersGrid.tsx";
 import "./OrderPage.css";
+import type { CartWithProduct, LoadCart, Orders } from "../../types/allTypes.js";
 
-function OrderPage({ cart, loadCart }) {
-  const [orders, setOrders] = useState();
+function OrderPage({ cart, loadCart }: {
+  cart: CartWithProduct;
+  loadCart: LoadCart;
+}) {
+  const [orders, setOrders] = useState<Orders | undefined>();
   useEffect(() => {
     axios.get("/api/orders?expand=products").then((response) => {
       setOrders(response.data);

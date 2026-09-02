@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useRef, type ChangeEvent } from "react";
 import { formatMoney } from "../../utils/money.ts";
-import type { LoadCart, Product } from "../../types/allTypes.js";
+import type { LoadCart, Product } from "../../types/allTypes.ts";
 
 function ProductPage({ product, loadCart }: {
   product: Product;

@@ -1,15 +1,19 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-import OrderSummary from "./OrderSummary.jsx";
-import PaymentSummary from "./PaymentSummary.jsx";
-import CheckoutHeader from "./CheckoutHeader.jsx";
+import OrderSummary from "./OrderSummary.tsx";
+import PaymentSummary from "./PaymentSummary.tsx";
+import CheckoutHeader from "./CheckoutHeader.tsx";
 import "./CheckoutPage.css";
+import type { CartWithProduct, DeliveryOptionsType, LoadCart, PaymentSummaryType } from "../../types/allTypes.js";
 //
 
-function CheckoutPage({ cart, loadCart }) {
-  const [deliveryOptions, setDeliveryOptions] = useState([]);
-  const [paymentSummary, setPaymentSummary] = useState(null);
+function CheckoutPage({ cart, loadCart }:{
+  cart: CartWithProduct;
+  loadCart: LoadCart;
+}) {
+  const [deliveryOptions, setDeliveryOptions] = useState<DeliveryOptionsType | undefined>([]);
+  const [paymentSummary, setPaymentSummary] = useState<PaymentSummaryType | null>(null);
 
   useEffect(() => {
     const fetchDeliveryOptions = async () => {
@@ -28,6 +32,10 @@ function CheckoutPage({ cart, loadCart }) {
     };
     fetchPaymentSummary();
   }, [cart]);
+
+  if(!deliveryOptions || !paymentSummary){
+    return null;
+  }
 
   return (
     <>

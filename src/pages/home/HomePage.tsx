@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router";
 
 import ProductsGrid from "./ProductsGrid.tsx";
-import Header from "../../components/Header";
+import Header from "../../components/Header.tsx";
 import "./HomePage.css";
 import type { Cart, LoadCart } from "../../types/allTypes";
 

@@ -2,8 +2,13 @@ import { Link } from "react-router";
 import dayjs from "dayjs";
 import BuyAgainIcon from "../../assets/images/icons/buy-again.png";
 import axios from "axios";
+import type { LoadCart, OrderProduct } from "../../types/allTypes";
 
-const OrderProductDetail = ({ orderId, orderProduct, loadCart }) => {
+const OrderProductDetail = ({ orderId, orderProduct, loadCart }:{
+  orderId: string,
+  orderProduct: OrderProduct;
+  loadCart: LoadCart;
+}) => {
   const handleReAddToCart = async () => {
     // post cart data
     await axios.post("/api/cart-items", {

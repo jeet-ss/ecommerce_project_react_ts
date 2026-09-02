@@ -4,8 +4,9 @@ import Logo from "../../assets/images/logo.png";
 import MobileLogo from "../../assets/images/mobile-logo.png";
 import CheckoutLockIcon from "../../assets/images/icons/checkout-lock-icon.png";
 import "./CheckoutHeader.css";
+import type { CartWithProduct } from "../../types/allTypes";
 
-function CheckoutHeader({ cart }) {
+function CheckoutHeader({ cart }:{ cart:CartWithProduct }) {
   let totalQuantity = 0;
 
   cart.forEach((cartItem) => {

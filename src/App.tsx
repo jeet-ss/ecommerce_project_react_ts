@@ -4,14 +4,15 @@ import { Routes, Route } from 'react-router';
 
 
 import HomePage from './pages/home/HomePage.tsx';
-import CheckoutPage from './pages/checkout/CheckoutPage';
-import OrderPage from './pages/orders/OrderPage';
+import CheckoutPage from './pages/checkout/CheckoutPage.tsx';
+import OrderPage from './pages/orders/OrderPage.tsx';
 import TrackingPage from './pages/tracking/TrackingPage.tsx';
-import ErrorPage from './pages/ErrorPage';
+import ErrorPage from './pages/ErrorPage.tsx';
 import './App.css';
+import type { CartWithProduct } from './types/allTypes.ts';
 
 function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<CartWithProduct | []>([]);
 
   const loadCart = async() => {
       const response = await axios.get('/api/cart-items?expand=product');

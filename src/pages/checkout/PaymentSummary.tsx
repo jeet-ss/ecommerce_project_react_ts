@@ -1,8 +1,12 @@
 import axios from "axios";
 import { formatMoney } from "../../utils/money.js";
 import { useNavigate } from "react-router";
+import type { LoadCart, PaymentSummaryType } from "../../types/allTypes.js";
 
-function PaymentSummary({ paymentSummary, loadCart }) {
+function PaymentSummary({ paymentSummary, loadCart }:{
+  paymentSummary: PaymentSummaryType;
+  loadCart: LoadCart;
+}) {
   const navigate = useNavigate();
 
   const handlePlaceOrder = async () => {
